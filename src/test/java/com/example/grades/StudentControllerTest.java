@@ -24,5 +24,14 @@ public class StudentControllerTest {
         String json = "{\"name\":\"Khalid\",\"course\":\"SE4111\",\"grade\":91.0}";
         mockMvc.perform(post("/api/students").contentType("application/json").content(json)).andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("Khalid"));
+  
+       
+         } 
+            @Test
+    void healthCheckShouldReturnUp() throws Exception {
+        mockMvc.perform(get("/api/health"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.status").value("UP"));
     }
 }
+
