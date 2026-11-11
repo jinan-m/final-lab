@@ -28,8 +28,7 @@ jobs:
 
       # 3) Compile + run all JUnit tests
       - name: Build and test with Maven
-        run: mvn --batch-mode clean verify
-
+run: mvn --batch-mode org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
       # 4) Run SonarQube Cloud analysis
       - name: SonarQube Cloud scan
         env:
